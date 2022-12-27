@@ -1,0 +1,43 @@
+<div class="container">
+<div class="centrar">
+<h1>Gif Galery</h1>
+</div>
+
+
+<div class="raw centrar">
+    <input type="text" class="form-control" placeholder="Gift URL" [(ngModel)]="newGift.url">
+    <button class="btn btn-light" (click)="addGift()"> Agregar </button>
+</div>
+
+<div class="row centrar" *ngIf="error">
+    <div class=" col-6 centrado-sin-margin error">
+        Error al añadir el Gift
+    </div>
+</div>
+
+
+<div class="row centrar" *ngIf="gifts.length > 0; else vacio">
+    <div *ngFor="let gift of gifts" class="col-7">
+        <div class="row centrar">
+            
+                <img src={{gift.url}} width="20%" height="20%"/>
+                <button class="btn btn-primary" (click)="deleteGift(gift)"> Eliminar</button>
+            
+        </div><br>
+    </div>
+</div>
+<ng-template #vacio>
+    <div class="row centrar">
+        <div class="centrado-sin-margin">
+            <p>No posee gifts</p>
+        </div>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+</div>
